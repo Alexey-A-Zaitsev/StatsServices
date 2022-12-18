@@ -18,7 +18,7 @@ public class StatsServiceTest {
     }
 
     @Test
-    // Срелняя сумма продаж за год
+    // Средняя сумма продаж за год
     public void shouldFindAverageAmountMonth() {
         StatsService service = new StatsService();
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};

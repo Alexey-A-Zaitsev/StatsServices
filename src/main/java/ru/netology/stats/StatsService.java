@@ -11,11 +11,8 @@ public class StatsService {
     }
 // Сервис расчета средней суммы продаж в месяц
     public double averageAmountYear(long[] sales) {
-        int sumYear = 0;
-        for (long sale : sales) {
-            sumYear += sale;
-        }
-        return sumYear / sales.length;
+        int averageSumYear = amountPerYear(sales) / sales.length;
+        return averageSumYear;
 
     }
 // Сервис расчета номера месяца с максимальными продажами
@@ -51,11 +48,7 @@ public class StatsService {
 // Сервис расчета количества месяцев с продажами ниже среднего
     public int nMonthsBelowAvg (long[] sales) {
         int nMonthMin = 0; // счетчик количества месяцев
-        int sumYear = 0;
-        for (long sale : sales) {
-            sumYear += sale;
-        }
-        double averAmount = sumYear / sales.length;
+        double averAmount = averageAmountYear(sales);
         for (long sale : sales) {
             if (sale < averAmount){
                 nMonthMin++;
@@ -67,11 +60,7 @@ public class StatsService {
 // Сервис расчета количества месяцев с продажами выше среднего
     public int nMonthsAboveAvg (long[] sales) {
         int nMonthMin = 0; // счетчик количества месяцев
-        int sumYear = 0;
-        for (long sale : sales) {
-            sumYear += sale;
-        }
-        double averAmount = sumYear / sales.length;
+        double averAmount = averageAmountYear(sales);
         for (long sale : sales) {
             if (sale > averAmount){
                 nMonthMin++;
